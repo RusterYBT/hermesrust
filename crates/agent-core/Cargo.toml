@@ -1,0 +1,11 @@
+[package]
+name = "agent-core"
+version.workspace = true
+edition.workspace = true
+
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+agent-memory = { path = "../agent-memory" }
+llm-client = { path = "../llm-client" }

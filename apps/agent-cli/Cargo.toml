@@ -1,0 +1,10 @@
+[package]
+name = "agent-cli"
+version.workspace = true
+edition.workspace = true
+
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+agent-core = { path = "../../crates/agent-core" }

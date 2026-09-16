@@ -1,27 +1,27 @@
-trait AgentTrait {
-    fn get_name(&self) -> &str;
-    fn get_version(&self) -> &str;
-}
-struct Agent {
-    name: String,
-    version: String,
-}
-impl AgentTrait for Agent {
-    fn get_name(&self) -> &str {
-        &self.name
-    }
+use tokio::time::{sleep, Duration};
 
-    fn get_version(&self) -> &str {
-        &self.version
-    }
+async fn request_model(name: &str) -> String {
+    println!("{name}：开始发送请求");
+
+    sleep(Duration::from_secs(2)).await;
+
+    println!("{name}：收到响应");
+    format!("{name} 的回答")
 }
-fn get_agent(agent: &impl AgentTrait){
-    print!("Agent: {}, Version: {}", agent.get_name(), agent.get_version());
-}
-fn main() {
-    let agent = Agent {
-        name: "MyAgent".into(),
-        version: "1.0.0".into(),
-    };
-    get_agent(&agent);
+
+#[tokio::main]
+async fn main() {
+    let task_a = tokio::spawn(async {
+        request_model("请求 A").await
+    });
+
+    let task_b = tokio::spawn(async {
+        request_model("请求 B").await
+    });
+
+    let answer_a = task_a.await.unwrap();
+    let answer_b = task_b.await.unwrap();
+
+    println!("{answer_a}");
+    println!("{answer_b}");
 }

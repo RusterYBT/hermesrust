@@ -1,9 +1,16 @@
-[package]
-name = "ai-agent"
-version = "0.1.0"
-edition = "2024"
+[workspace]
+resolver = "2"
+members = [
+    "crates/agent-memory",
+    "crates/agent-core",
+    "crates/llm-client",
+    "apps/agent-cli",
+]
 
-[dependencies]
-anyhow = "1.0.104"
-async-trait = "0.1.92"
-tokio = "1.53.1"
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+authors = ["yanbt"]
+license = "MIT"
+
+[workspace.dependencies]
