@@ -5,8 +5,8 @@ __pycache__/
 # 虚拟环境
 torch_env/
 venv/
-.env
-
+.env/
+environment.env
 # 编辑器配置
 .vscode/
 
@@ -17,4 +17,5 @@ venv/
 # 大模型或数据文件
 *.pt
 *.pth
-data/environment.env
+data/
+target/
