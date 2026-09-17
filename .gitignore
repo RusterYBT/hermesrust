@@ -13,6 +13,7 @@ environment.env
 # 日志和临时文件
 *.log
 *.tmp
+*.md
 
 # 大模型或数据文件
 *.pt
